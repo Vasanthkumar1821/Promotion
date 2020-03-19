@@ -1,13 +1,12 @@
 package com.searchCruise.Application.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Cruises")
-public class Cruises implements Serializable {
+public class Cruises {
 
 	@Id
 	private double _id;

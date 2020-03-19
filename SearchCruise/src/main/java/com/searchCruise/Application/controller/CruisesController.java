@@ -1,9 +1,6 @@
 package com.searchCruise.Application.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -59,7 +56,7 @@ public class CruisesController {
 	public Cruises getSailingdate(@PathVariable String sailingdate) throws Exception {
 		System.out.println("date section");
 		// String sDate1="31/12/1998";
-		SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz", Locale.US);
+//		SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz", Locale.US);
 
 		// Date d=date1.parse(sailingdate);
 
@@ -72,7 +69,7 @@ public class CruisesController {
 		if (theCruise == null) {
 			throw new RuntimeException("Sailing date is not found - " + sailingdate);
 		}
-		
+
 		return theCruise;
 	}
 }
