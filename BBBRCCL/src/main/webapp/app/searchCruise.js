@@ -29,7 +29,7 @@ app.controller('searchCruiseController', function($scope, $http, $window) {
 			console.log(response.data);
 			// controller: 'viewCruises';
 			$scope.cru = response.data;
-			console.log($scope.cru);
+			// console.log($scope.cru);
 			$scope.cruises = null;
 			// $window.location.reload();
 		}, function error(response) {
@@ -57,6 +57,6 @@ app.controller('viewCruises', function($scope, $http) {
 		}
 	}).then(function(response) {
 		// $scope.cruises.sailingdate = new Date($scope.cruises.sailingdate);
-		$scope.cruises = response.data;
+		$scope.cru = response.data;
 	});
 });
