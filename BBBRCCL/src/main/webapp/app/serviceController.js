@@ -83,7 +83,7 @@ app.controller('viewController', function($scope, $http, $window) {
 
 	}
 	$scope.clickedPromotion = function(x) {
-		console.log("Data from Form===" + x);
+		console.log(x);
 		$scope.selectpromotion = x;
 
 		$scope.selectpromotion.promotionValidFrom = new Date(
@@ -91,7 +91,7 @@ app.controller('viewController', function($scope, $http, $window) {
 		$scope.selectpromotion.promotionExpiresAt = new Date(
 				$scope.selectpromotion.promotionExpiresAt);
 
-		console.log("Data Sending to Modal Form===" + $scope.selectpromotion);
+		console.log($scope.selectpromotion);
 
 	}
 	$scope.updatePromotion = function() {
