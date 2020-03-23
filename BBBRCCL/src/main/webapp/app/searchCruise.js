@@ -18,9 +18,10 @@ app.controller('searchCruiseController', function($scope, $http, $window) {
 		$http(
 				{
 					method : 'GET',
-					url : 'http://localhost:8064/api/cruises/'
+					url : 'http://localhost:8062/api/cruises/'
 							+ $scope.cruises.state + '/'
-							+ $scope.cruises.destination,
+							+ $scope.cruises.destination + '/'
+							+ $scope.cruises.sailingdate,
 					data : angular.toJson($scope.cruises),
 					headers : {
 						'Content-Type' : 'application/json'

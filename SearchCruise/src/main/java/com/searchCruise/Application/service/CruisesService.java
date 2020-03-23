@@ -1,5 +1,6 @@
 package com.searchCruise.Application.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,19 @@ public class CruisesService {
 	// Reterive based on state and destination
 	public Cruises getbyStateAndDestination(String state, String destination) {
 		return cruisesRepository.findAllByStateAndDestination(state, destination);
+	}
 
+	// Reterive based on state and destination Sailing Date
+	public Cruises getbyStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate) {
+		return cruisesRepository.findAllByStateAndDestinationAndSailingdate(state, destination, sailingdate);
 	}
 
 	// reterive by sailing Date
-	public Cruises getbySailingdate(String sailingdate) {
+	public Cruises getbySailingdate(Date sailingdate) {
 
-		System.out.println("Service code for date" + sailingdate);
+		System.out.println("Service code for date==" + sailingdate);
 //		Date d=new Date("2015-02-02").toISOString();
-		return cruisesRepository.findBySailingdate(sailingdate);
+		return cruisesRepository.findAllBySailingdate(sailingdate);
 
 	}
 }

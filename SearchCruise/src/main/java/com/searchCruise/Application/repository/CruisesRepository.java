@@ -8,10 +8,12 @@ import org.springframework.stereotype.Repository;
 import com.searchCruise.Application.model.Cruises;
 
 @Repository
-public interface CruisesRepository extends MongoRepository<Cruises, Date> {
+public interface CruisesRepository extends MongoRepository<Cruises, String> {
 	public Cruises findByState(String state);
 
 	public Cruises findAllByStateAndDestination(String state, String destination);
 
-	public Cruises findBySailingdate(String sailingdate);
+	public Cruises findAllByStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate);
+
+	public Cruises findAllBySailingdate(Date sailingdate);
 }
