@@ -49,7 +49,7 @@ public class PromotionRestController {
 	}
 
 	// Inserting Promotions
-	@CrossOrigin(origins = "http://localhost:9090")
+	@CrossOrigin(origins = "*")
 	@PostMapping(value = "/promotions", headers = "Accept=application/json")
 	public Promotion addPromotion(@RequestBody Promotion thePromotion) {
 
@@ -65,7 +65,7 @@ public class PromotionRestController {
 	}
 
 	// Updating the Promotion by id
-	@CrossOrigin(origins = "http://localhost:9090")
+	@CrossOrigin(origins = "*")
 	@PutMapping("/promotions")
 	public Promotion updatePromotion(@RequestBody Promotion thePromotion) {
 
@@ -80,7 +80,7 @@ public class PromotionRestController {
 	}
 
 	// Delete Promotions
-	@CrossOrigin(origins = "http://localhost:9090")
+	@CrossOrigin(origins = "*")
 	@DeleteMapping("/promotions/{promotionId}")
 	public List<Promotion> deletePromotion(@PathVariable int promotionId) {
 
