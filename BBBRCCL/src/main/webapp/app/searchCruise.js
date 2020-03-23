@@ -28,7 +28,7 @@ app.controller('searchCruiseController', function($scope, $http, $window) {
 				}).then(function(response) {
 			console.log("success data");
 			console.log(response.data);
-
+			$scope.cruises = null;
 			$scope.cru = response.data;
 			$scope.cru.sailingdate = new Date($scope.cru.sailingdate);
 			console.log($scope.cru);

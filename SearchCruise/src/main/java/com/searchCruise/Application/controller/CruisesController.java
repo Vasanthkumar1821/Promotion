@@ -40,7 +40,7 @@ public class CruisesController {
 	}
 
 	// get all details based on sailing date and state and destination
-	@CrossOrigin(origins = "http://localhost:8082")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/cruises/{state}/{destination}/{sailingdate}")
 	public List<Cruises> getStateAndDestinationAndSailingdate(@PathVariable String state,
 			@PathVariable String destination, @PathVariable Date sailingdate) {
