@@ -31,8 +31,10 @@ public class CruisesService {
 	}
 
 	// Reterive based on state and destination Sailing Date
-	public Cruises getbyStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate) {
-		return cruisesRepository.findAllByStateAndDestinationAndSailingdate(state, destination, sailingdate);
+	public List<Cruises> getbyStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate) {
+		List<Cruises> l = null;
+		l = cruisesRepository.findAllByStateAndDestinationAndSailingdate(state, destination, sailingdate);
+		return l;
 	}
 
 	// reterive by sailing Date

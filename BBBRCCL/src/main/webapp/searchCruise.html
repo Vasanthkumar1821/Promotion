@@ -11,6 +11,20 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
 
+<!-- table -->
+<!-- <link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet"> -->
+<script
+	src="js/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="css/jquery.dataTables.min.css">
+<script type="text/javascript"
+	src="js/jquery.dataTables.min.js"></script>
+<!-- <script type="text/javascript"
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<!--table  -->
+
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -137,7 +151,7 @@
 								</div>
 								<div class="input_field">
 									<input type="date" placeholder="Sailing Date"
-										ng-model="cruises.sailingdate" required>
+										ng-model="cruises.sailingdate" date-format required>
 								</div>
 								<!-- <div class="input_field">
 								<select>
@@ -159,35 +173,36 @@
 		<!-- where_togo_area_end  -->
 		<br> <br>
 
-
 		<div style="margin-left: 50px; margin-right: 50px;">
 			<!-- <div ng-controller="viewCruises"> -->
-			<table class="table table-striped table-bordered table-sm">
-				<thead>
-					<tr>
-						<th>S.No</th>
-						<th>Ship Code</th>
-						<th>Ship Name</th>
-						<th>Sailing Date</th>
-						<th>State</th>
-						<th>Destination</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="cruis in cru">
-						<td>{{$index + 1}}</td>
-						<td>{{cruis.shipcode}}</td>
-						<td>{{cruis.shipname}}</td>
-						<td>{{cruis.sailingdate | date : format : 'dd-MM-yyyy @
-							HH:mm:ss Z'}}</td>
-						<td>{{cruis.state}}</td>
-						<td>{{cruis.destination}}</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="container">
+				<table id="myTable"
+					class="table table-striped">
+					<thead>
+						<tr>
+							<th>S.No</th>
+							<th>Ship Code</th>
+							<th>Ship Name</th>
+							<th>Sailing Date</th>
+							<th>State</th>
+							<th>Destination</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cruise in cru">
+							<td>{{$index + 1}}</td>
+							<td>{{cruise.shipcode}}</td>
+							<td>{{cruise.shipname}}</td>
+							<td>{{cruise.sailingdate | date : format : 'dd-MM-yyyy @
+								HH:mm:ss Z'}}</td>
+							<td>{{cruise.state}}</td>
+							<td>{{cruise.destination}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-
 	<!-- Footer end -->
 	<footer class="footer">
 		<div class="footer_top">
@@ -342,7 +357,11 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/gijgo.min.js"></script>
 	<script src="js/slick.min.js"></script>
-
+	<script>
+		$(document).ready(function() {
+			$('#myTable').dataTable();
+		});
+	</script>
 
 
 	<!--contact js-->

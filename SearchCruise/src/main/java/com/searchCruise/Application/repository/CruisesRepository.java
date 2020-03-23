@@ -1,6 +1,7 @@
 package com.searchCruise.Application.repository;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ public interface CruisesRepository extends MongoRepository<Cruises, String> {
 
 	public Cruises findAllByStateAndDestination(String state, String destination);
 
-	public Cruises findAllByStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate);
+	public List<Cruises> findAllByStateAndDestinationAndSailingdate(String state, String destination, Date sailingdate);
 
 	public Cruises findAllBySailingdate(Date sailingdate);
 }

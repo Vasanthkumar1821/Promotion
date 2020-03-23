@@ -12,9 +12,8 @@ app.controller('searchCruiseController', function($scope, $http, $window) {
 	}
 	$scope.searchCruise = function() {
 
-		console.log("Submition Started");
-		console.log($scope.cruises);
-
+		// console.log("Submition Started");
+		// console.log($scope.cruises);
 		$http(
 				{
 					method : 'GET',
@@ -26,17 +25,26 @@ app.controller('searchCruiseController', function($scope, $http, $window) {
 					headers : {
 						'Content-Type' : 'application/json'
 					}
-				}).then(function success(response) {
+				}).then(function(response) {
+			console.log("success data");
 			console.log(response.data);
-			// controller: 'viewCruises';
+
 			$scope.cru = response.data;
-			// console.log($scope.cru);
-			$scope.cruises = null;
-			// $window.location.reload();
-		}, function error(response) {
-			console.log("error found");
-			console.log(response.data);
-		})
+			$scope.cru.sailingdate = new Date($scope.cru.sailingdate);
+			console.log($scope.cru);
+			// console.log("state==" + $scope.cruises.state);
+		});
+		/*
+		 * $http( { method : 'GET', url : 'http://localhost:8062/api/cruises/' +
+		 * $scope.cruises.state + '/' + $scope.cruises.destination + '/' +
+		 * $scope.cruises.sailingdate, data : angular.toJson($scope.cruises),
+		 * headers : { 'Content-Type' : 'application/json' } }).then(function
+		 * success(response) { console.log(response.data); // controller:
+		 * 'viewCruises'; $scope.cru = response.data; //
+		 * console.log($scope.cru); $scope.cruises = null; //
+		 * $window.location.reload(); }, function error(response) {
+		 * console.log("error found"); console.log(response.data); })
+		 */
 	}
 });
 

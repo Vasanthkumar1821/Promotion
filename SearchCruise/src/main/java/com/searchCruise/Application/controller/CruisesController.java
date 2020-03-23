@@ -20,7 +20,7 @@ public class CruisesController {
 	@Autowired
 	private CruisesService cruisesService;
 
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins = "http://localhost:8082")
 	@GetMapping("/cruises")
 	public List<Cruises> getAll() {
 		System.out.println("printing alllll");
@@ -40,15 +40,18 @@ public class CruisesController {
 	}
 
 	// get all details based on sailing date and state and destination
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins = "http://localhost:8082")
 	@GetMapping("/cruises/{state}/{destination}/{sailingdate}")
-	public Cruises getStateAndDestinationAndSailingdate(@PathVariable String state, @PathVariable String destination,
-			@PathVariable Date sailingdate) {
+	public List<Cruises> getStateAndDestinationAndSailingdate(@PathVariable String state,
+			@PathVariable String destination, @PathVariable Date sailingdate) {
 
-		Cruises theCruise = cruisesService.getbyStateAndDestinationAndSailingdate(state, destination, sailingdate);
-
+		// Cruises
+		List<Cruises> theCruise = cruisesService.getbyStateAndDestinationAndSailingdate(state, destination,
+				sailingdate);
+System.out.println("list==="+theCruise);
 		if (theCruise == null) {
-			throw new RuntimeException("state Name and destination not found - " + state + "  " + destination);
+			throw new RuntimeException("state Name and destination and sailing date not found - " + state + "  "
+					+ destination + " " + sailingdate);
 		}
 		return theCruise;
 	}
